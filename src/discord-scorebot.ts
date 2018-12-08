@@ -102,7 +102,7 @@ export default new class DiscordScorebot extends Client {
         if (i) {
             base = base + i.toString()
         }
-        for (const eventid of Object.keys(this.events)) if (this.events[eventid].name === base) return this.makeEventName(base.slice(0, -1), ++i);
+        for (const eventid of Object.keys(this.events)) if (this.events[eventid].name === base) return this.makeEventName(i ? base.slice(0, -1) : base, ++i);
         return base;
     }
 
@@ -138,6 +138,11 @@ export default new class DiscordScorebot extends Client {
                     const [ eventname ] = params;
                     for (const eventid of Object.keys(this.events)) {
                         if (this.events[eventid].name === eventname) {
+                            this.events[eventid].score[message.author.id] = {
+                                declines: 0,
+                                checkouts: 0,
+                            }
+                            this.updateScoreMessage(eventid);
                             return message.reply(`${baseURI}/webhook/${eventid}/${message.author.id}`);
                         }
                     }
