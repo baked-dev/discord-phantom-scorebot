@@ -1,0 +1,27 @@
+{
+  "name": "discord-scorebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev:watch": "tsc -w",
+    "build": "tsc -p tsconfig.json",
+    "postinstall": "npm run build",
+    "start": "node dist/discord-scorebot.js"
+  },
+  "author": "Ghost",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.1.1",
+    "@types/request-promise-native": "^1.0.14",
+    "body-parser": "^1.18.3",
+    "discord.js": "^11.4.2",
+    "express": "^4.16.4",
+    "request": "^2.86.0",
+    "request-promise-native": "^1.0.5",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3",
+    "typescript-map": "0.0.6"
+  }
+}
