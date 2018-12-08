@@ -67,6 +67,7 @@ export default new class DiscordScorebot extends Client {
                 change = true
             }
             if (change) this.updateScoreMessage(eventid);
+            this.forwardMessage(req.body);
             res.status(200).send('OK');
         });
         this.app.listen(2525);
